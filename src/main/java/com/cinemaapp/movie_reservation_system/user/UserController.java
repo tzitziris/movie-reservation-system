@@ -1,6 +1,7 @@
 package com.cinemaapp.movie_reservation_system.user;
 
 import com.cinemaapp.movie_reservation_system.user.dto.UserCreateRequestDTO;
+import com.cinemaapp.movie_reservation_system.user.dto.UserResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +20,11 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> getAllUsers() {
+    public List<UserResponseDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PostMapping
+    @PostMapping("/users")
     public ResponseEntity<User> createUser(@RequestBody UserCreateRequestDTO request) {
         try {
             User createdUser = userService.createUser(request);
