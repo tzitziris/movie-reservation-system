@@ -32,9 +32,6 @@ public class UserService {
         return dto;
     }
 
-
-
-
     public User createUser(UserCreateRequestDTO request) {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("Email already exists!");
